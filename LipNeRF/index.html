@@ -118,7 +118,7 @@
 
 <html>
 <head>
-    <title>SIDER</title>
+    <title>LipNeRF</title>
     <meta property="og:image" content="Path to my teaser.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
     <meta property="og:title" content="Creative and Descriptive Paper Title." />
     <meta property="og:description" content="Paper description." />
@@ -138,42 +138,52 @@
 <body>
     <br>
     <center>
-        <span style="font-size:36px">SIDER: Single-Image Neural Optimization for </br> Facial Geometric Detail Recovery</span><br></br>
+        <span style="font-size:36px">LipNeRF: What is the right feature space to lip-sync a NeRF?</span><br></br>
         <table align=center width=1200px>
             <table align=center width=1200px>
                 <tr>
                     <td align=center width=300px>
                         <center>
-                            <span style="font-size:24px">Aggelina Chatziagapi<sup>1*</sup></a></span>
+                            <span style="font-size:20px">Aggelina Chatziagapi<sup>1</sup></a></span>
                         </center>
                     </td>
                     <td align=center width=300px>
                         <center>
-                            <span style="font-size:24px">ShahRukh Athar<sup>1*</sup></a></span>
+                            <span style="font-size:20px">ShahRukh Athar<sup>1</sup></a></span>
+                        </center>
+                    </td>
+                    <td align=center width=200px>
+                        <center>
+                            <span style="font-size:20px">Abhinav Jain<sup>2</sup></a></span>
+                        </center>
+                    </td>
+                    <td align=center width=200px>
+                        <center>
+                            <span style="font-size:20px">Rohith MV<sup>2</sup></a></span>
+                        </center>
+                    </td>
+                    <td align=center width=200px>
+                        <center>
+                            <span style="font-size:20px">Vimal Bhat<sup>2</sup></a></span>
                         </center>
                     </td>
                     <td align=center width=300px>
                         <center>
-                            <span style="font-size:24px">Francesc Moreno-Noguer<sup>2</sup></a></span>
-                        </center>
-                    </td>
-                    <td align=center width=300px>
-                        <center>
-                            <span style="font-size:24px">Dimitris Samaras<sup>1</sup></a></span>
+                            <span style="font-size:20px">Dimitris Samaras<sup>1</sup></a></span>
                         </center>
                     </td>
                 </tr>
             </table><br></br>
             <table align=center width=1200px>
                 <tr>
-                    <td align=center width=300px>
+                    <td align=center width=600px>
                         <center>
-                            <span style="font-size:24px"><sup>1</sup>Stony Brook University</a></span>
+                            <span style="font-size:20px"><sup>1</sup>Stony Brook University</a></span>
                         </center>
                     </td>
                     <td align=center width=600px>
                         <center>
-                            <span style="font-size:24px"><sup>2</sup>Institut de Rob&ogravetica i Inform&agravetica Industrial, CSIC-UPC</a></span>
+                            <span style="font-size:20px"><sup>2</sup>Amazon Prime Video</a></span>
                         </center>
                     </td>
                 </tr>
@@ -182,7 +192,7 @@
                 <tr>
                     <td align=center width=300px>
                         <center>
-                            <span style="font-size:24px"><i>International Conference on 3D Vision (3DV) 2021</i></a></span>
+                            <span style="font-size:24px"><i>International Conference on Automatic Face and Gesture Recognition (FG) 2023</i></a></span>
                         </center>
                     </td>
                 </tr>
@@ -191,7 +201,7 @@
                 <tr>
                     <td align=center width=120px>
                         <center>
-                            <span style="font-size:24px"><a href="https://arxiv.org/abs/2108.05465">[Paper]</a></span>
+                            <span style="font-size:24px"><a href="https://www.amazon.science/publications/lipnerf-what-is-the-right-feature-space-to-lip-sync-a-nerf">[Paper]</a></span>
                         </center>
                     </td>
                     <td align=center width=120px>
@@ -209,7 +219,7 @@
             <tr>
                 <td width=260px>
                     <center>
-                        <img class="round" style="width:1024px" src="teas2.jpg"/>
+                        <img class="round" style="width:1024px" src="lipnerf.jpg"/>
                     </center>
                 </td>
             </tr>
@@ -229,7 +239,8 @@
         <center><h1>Abstract</h1></center>
         <tr>
             <td>
-                We present <b>SIDER</b> (<b>S</b>ingle-<b>I</b>mage neural optimization for facial geometric <b>DE</b>tail <b>R</b>ecovery), a novel photometric optimization method that recovers detailed facial geometry from a single image in an unsupervised manner. Inspired by classical techniques of coarse-to-fine optimization and recent advances in implicit neural representations of 3D shape, SIDER combines a geometry prior based on statistical models and Signed Distance Functions (SDFs) to recover facial details from single images. First, it estimates a coarse geometry using a morphable model represented as an SDF. Next, it reconstructs facial geometry details by optimizing a photometric loss with respect to the ground truth image. In contrast to prior work, SIDER does not rely on any dataset priors and does not require  additional supervision from multiple views, lighting changes or ground truth 3D shape. Extensive qualitative and quantitative evaluation demonstrates that our method achieves state-of-the-art on facial geometric detail recovery, using only a single in-the-wild image.
+                Synthesizing high-fidelity talking head videos of an arbitrary identity, lip-synced to a target speech segment, is a challenging problem. Recent GAN-based methods succeed by training a model on a large amount of videos, allowing the generator to learn a variety of audio-lip representations. However, they are unable to handle head pose changes. On the other hand, Neural Radiance Fields (NeRFs) model the 3D face geometry more accurately. Current audio-conditioned NeRFs are not as good in lip synchronization as GANs, since they are trained on limited video data of a single identity. In this work, we propose LipNeRF, a lip-syncing NeRF that bridges the gap between the accurate lip synchronization of GAN-based methods and the accurate 3D face modeling of NeRFs. LipNeRF is conditioned on the expression space of a 3DMM, instead of the audio feature space. We experimentally demonstrate that the expression space gives a better representation for the lip shape than the audio feature space. LipNeRF shows a significant improvement in lip-sync quality over the current state-of-the-art, especially in high-definition videos of cinematic content, with challenging pose, illumination and expression variations. 
+
             </td>
         </tr>
     </table>
@@ -303,15 +314,15 @@
             </td>
         </tr>
     </table> -->
-    <table align=center width=900px>
+    <table align=center width=800px>
        <center><h1>Method</h1></center>
         <tr>
-            <td><img style="width:900px" src="DetIDR_Full_Method.png">
+            <td><img style="width:800px" src="method.png">
             </td>
         </tr>
     </table>
     
-    <br>
+    <!-- <br>
     <hr>
     <table align=center width=1024px>
        <center><h1>3D Reconstructions</h1></center>
@@ -320,7 +331,7 @@
             </td>
         </tr>
     </table>
-
+ -->
 <!--     <table align=center width=600px>
         <tr>
             <td><span style="font-size:14pt"><center>
@@ -337,7 +348,7 @@
             <td width=400px>
                 <left>
                     <center><h1>Acknowledgements</h1></center>
-                    This work is partly supported  by the Spanish government with the project MoHuCo PID2020-120049RB-I00 and Mar&iacutea de Maeztu Seal of Excellence MDM-2016-0656. This work was also supported by a gift from Adobe, Partner University Fund 4DVision Project, and the SUNY2020 Infrastructure Transportation Security Center.
+                    This work was supported by Amazon Prime Video, Partner University Fund 4DVision Project, and SUNY2020 Infrastructure Transportation Security Center.
                 </left>
             </td>
         </tr>
