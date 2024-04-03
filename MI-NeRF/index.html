@@ -171,29 +171,29 @@
                     </td>
                 </tr>
             </table><br>
-            <table align=center>
+            <!-- <table align=center>
                 <tr>
                     <td align=center width=1024px>
                         <center>
-                            <span style="font-size:24px"><i>2024</i></a></span>
-                        </center>
-                    </td>
-                </tr>
-            </table><br></br>
-            <!-- <table align=center width=250px>
-                <tr>
-                    <td align=center width=120px>
-                        <center>
-                            <span style="font-size:24px"><a href="https://arxiv.org/abs/2108.05465">[Paper]</a></span>
-                        </center>
-                    </td>
-                    <td align=center width=120px>
-                        <center>
-                            <span style="font-size:24px">[GitHub]</a></span><br>
+                            <span style="font-size:24px"><i>arXiv 2024</i></a></span>
                         </center>
                     </td>
                 </tr>
             </table><br></br> -->
+            <table align=center width=250px>
+                <tr>
+                    <td align=center width=120px>
+                        <center>
+                            <span style="font-size:24px"><a href="https://arxiv.org/abs/2403.19920">arXiv 2024</a></span>
+                        </center>
+                    </td>
+                    <!-- <td align=center width=120px>
+                        <center>
+                            <span style="font-size:24px">[GitHub]</a></span><br>
+                        </center>
+                    </td> -->
+                </tr>
+            </table><br></br>
         </table>
     </center>
 
@@ -204,6 +204,8 @@
                     <center>
                         <img class="round" style="width:1024px" src="teaser.png"/>
                     </center>
+                <br></br>
+                Our proposed multi-identity NeRF (MI-NeRF) learns a single network to model complex non-rigid human face motion of multiple identities from just monocular videos. In contrast, standard approaches train multiple per-identity NeRFs.
                 </td>
             </tr>
         </table>
@@ -283,6 +285,8 @@
        <center><h1>Method</h1></center>
         <tr>
             <td><img style="width:1024px;" src="diagram.png">
+                <br></br>
+                <b>Overview of MI-NeRF.</b> Given monocular talking face videos from multiple identities, MI-NeRF learns a single network to model their 4D geometry and appearance. A multiplicative module with shared weights across all identities learns non-linear interactions between identity codes and facial expressions. MI-NeRF can synthesize high-quality videos of any input identity.
             </td>
         </tr>
     </table>
@@ -303,15 +307,35 @@
              </td>
      </table>
     
+    <br>
+    <hr>
+    <br>
 
-<!--     <table align=center width=600px>
-        <tr>
-            <td><span style="font-size:14pt"><center>
-                <a href="./resources/bibtex.txt">[Bibtex]</a>
-            </center></td>
+    <table align=left width=1024px>
+        <h1>BibTeX</h1>
+         <tr>
+            <td align=left width=1024px>
+            <!-- <td><span style="font-size:14pt"><center> -->
+                <!-- <a href="./resources/bibtex.txt">[Bibtex]</a>  -->
+            <div>
+            <pre>
+                <code>
+                    @misc{chatziagapi2024minerf,
+                        title={MI-NeRF: Learning a Single Face NeRF from Multiple Identities}, 
+                        author={Aggelina Chatziagapi and Grigorios G. Chrysos and Dimitris Samaras},
+                        year={2024},
+                        eprint={2403.19920},
+                        archivePrefix={arXiv},
+                        primaryClass={cs.CV}
+                    }
+                </code>
+            </pre>
+        </div>
+        </td>
+            <!-- </center></td> -->
         </tr>
     </table>
- -->
+
     <!-- <br>
     <hr>
     <br> -->
