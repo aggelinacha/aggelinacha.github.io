@@ -118,8 +118,8 @@
 
 <html>
 <head>
-    <title>MI-NeRF</title>
-    <meta property="og:title" content="MI-NeRF: Learning a Single Face NeRF from Multiple Identities" />
+    <title>TalkinNeRF</title>
+    <meta property="og:title" content="TalkinNeRF: Animatable Neural Fields for Full-Body Talking Humans" />
 
     <!-- Get from Google Analytics -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -136,37 +136,57 @@
 <body>
     <br>
     <center>
-        <span style="font-size:36px"><b>MI-NeRF: Learning a Single Face NeRF from <br> Multiple Identities</b></span><br></br>
+        <span style="font-size:36px"><b>TalkinNeRF: Animatable Neural Fields for<br>Full-Body Talking Humans</b></span><br></br>
         <table align=center>
             <table align=center width=1024px>
                 <tr>
-                    <td align=center width=300px>
+                    <td align=center width=256px>
                         <center>
-                            <span style="font-size:24px"><a href="https://aggelinacha.github.io/">Aggelina Chatziagapi</a><sup>1</sup></a></span>
+                            <span style="font-size:24px">Aggelina Chatziagapi<sup>1</sup></a></span>
                         </center>
                     </td>
-                    <td align=center width=300px>
+                    <td align=center width=256px>
                         <center>
-                            <span style="font-size:24px"><a href="https://grigoris.ece.wisc.edu/">Grigorios G. Chrysos</a><sup>2</sup></a></span>
+                            <span style="font-size:24px">Bindita Chaudhuri<sup>3</sup></a></span>
                         </center>
                     </td>
-                    <td align=center width=300px>
+                    <td align=center width=200px>
                         <center>
-                            <span style="font-size:24px"><a href="https://www3.cs.stonybrook.edu/~samaras/">Dimitris Samaras</a><sup>1</sup></a></span>
+                            <span style="font-size:24px">Amit Kumar<sup>2</sup></a></span>
+                        </center>
+                    </td>
+                    <td align=center width=256px>
+                        <center>
+                            <span style="font-size:24px">Rakesh Ranjan<sup>2</sup></a></span>
+                        </center>
+                    </td>
+                    <td align=center width=256px>
+                        <center>
+                            <span style="font-size:24px">Dimitris Samaras<sup>1</sup></a></span>
+                        </center>
+                    </td>
+                    <td align=center width=256px>
+                        <center>
+                            <span style="font-size:24px">Nikolaos Sarafianos<sup>2</sup></a></span>
                         </center>
                     </td>
                 </tr>
             </table><br>
             <table align=center>
                 <tr>
-                    <td align=center width=450px>
+                    <td align=center width=400px>
                         <center>
-                            <span style="font-size:20px"><sup>1</sup>Stony Brook University</a></span>
+                            <span style="font-size:22px"><sup>1</sup>Stony Brook University</a></span>
                         </center>
                     </td>
-                    <td align=center width=450px>
+                    <td align=center width=400px>
                         <center>
-                            <span style="font-size:20px"><sup>2</sup>University of Wisconsin-Madison</a></span>
+                            <span style="font-size:22px"><sup>2</sup>Meta Reality Labs</a></span>
+                        </center>
+                    </td>
+                    <td align=center width=400px>
+                        <center>
+                            <span style="font-size:22px"><sup>2</sup>Flawless AI</a></span>
                         </center>
                     </td>
                 </tr>
@@ -180,11 +200,11 @@
                     </td>
                 </tr>
             </table><br></br> -->
-            <table align=center width=250px>
+            <table align=center width=256px>
                 <tr>
-                    <td align=center width=120px>
+                    <td align=center width=256px>
                         <center>
-                            <span style="font-size:24px"><a href="https://arxiv.org/abs/2403.19920">ECCVW 2024</a></span>
+                            <span style="font-size:24px">ECCV Workshops 2024</a></span>
                         </center>
                     </td>
                     <!-- <td align=center width=120px>
@@ -205,7 +225,9 @@
                         <img class="round" style="width:1024px" src="teaser.png"/>
                     </center>
                 <br></br>
-                Our proposed multi-identity NeRF (MI-NeRF) learns a single network to model complex non-rigid human face motion of multiple identities from just monocular videos. In contrast, standard approaches train multiple per-identity NeRFs.
+                Given monocular videos, TalkinNeRF learns a unified NeRF-based network that
+represents the holistic 4D human motion, including body pose, hand articulation, and
+facial expressions. It synthesizes high-quality animations of full-body talking humans.
                 </td>
             </tr>
         </table>
@@ -219,7 +241,20 @@
         <center><h1>Abstract</h1></center>
         <tr>
             <td>
-                In this work, we introduce a method that learns a single dynamic neural radiance field (NeRF) from monocular talking face videos of multiple identities. NeRFs have shown remarkable results in modeling the 4D dynamics and appearance of human faces. However, they require per-identity optimization. Although recent approaches have proposed techniques to reduce the training and rendering time, increasing the number of identities can be expensive. We introduce MI-NeRF (multi-identity NeRF), a single unified network that models complex non-rigid facial motion for multiple identities, using only monocular videos of arbitrary length. The core premise in our method is to learn the non-linear interactions between identity and non-identity specific information with a multiplicative module. By training on multiple videos simultaneously, MI-NeRF not only reduces the total training time compared to standard single-identity NeRFs, but also demonstrates robustness in synthesizing novel expressions for any input identity. We present results for both facial expression transfer and talking face video synthesis. Our method can be further personalized for a target identity given only a short video.
+                We introduce a novel framework that learns a dynamic neural
+radiance field (NeRF) for full-body talking humans from monocular
+videos. Prior work represents only the body pose or the face. However,
+humans communicate with their full body, combining body pose, hand
+gestures, as well as facial expressions. In this work, we propose TalkinNeRF, a unified NeRF-based network that represents the holistic 4D
+human motion. Given a monocular video of a subject, we learn corresponding
+modules for the body, face, and hands, that are combined
+together to generate the final result. To capture complex finger articulation,
+we learn an additional deformation field for the hands. Our multi-identity
+representation enables simultaneous training for multiple subjects,
+as well as robust animation under completely unseen poses. It can
+also generalize to novel identities, given only a short video as input. We
+demonstrate state-of-the-art performance for animating full-body talking
+humans, with fine-grained hand articulation and facial expressions.
             </td>
         </tr>
     </table>
@@ -284,9 +319,13 @@
     <table align=center width=1024px>
        <center><h1>Method</h1></center>
         <tr>
-            <td><img style="width:1024px;" src="diagram.png">
+            <td><img style="width:1024px;" src="overview.png">
                 <br></br>
-                <b>Overview of MI-NeRF.</b> Given monocular talking face videos from multiple identities, MI-NeRF learns a single network to model their 4D geometry and appearance. A multiplicative module with shared weights across all identities learns non-linear interactions between identity codes and facial expressions. MI-NeRF can synthesize high-quality videos of any input identity.
+                <b>Overview of TalkinNeRF. </b>Given a monocular video of a subject, we learn
+                a unified NeRF-based network that represents their holistic 4D motion. Corresponding
+                modules for body, face, and hands are combined together, in order to synthesize the
+                final full-body talking human. By learning an identity code per video, our method can
+                be trained on multiple identities simultaneously.
             </td>
         </tr>
     </table>
@@ -298,11 +337,8 @@
         <center><h1>Demo</h1></center>
          <tr>
              <td align=center width=1024px>
-                 <!-- <video width="800px" controls>
-                     <source src="lipnerf.mp4"  type="video/mp4">
-                 </video> -->
                  <iframe style="width: 100%; min-height: 576px"
-                     src="https://www.youtube.com/embed/ZQ9Mynvh7Mk">
+                     src="https://www.youtube.com/embed/AjJT4EFcZ3g">
                  </iframe>
              </td>
      </table>
@@ -321,13 +357,11 @@
             <div>
             <pre style="background-color: #f1f1f1; overflow-x: auto;">
                 <code>
-                    @misc{chatziagapi2024minerf,
-                        title={MI-NeRF: Learning a Single Face NeRF from Multiple Identities}, 
-                        author={Aggelina Chatziagapi and Grigorios G. Chrysos and Dimitris Samaras},
+                    @inproceedings{chatziagapi2024talkinnerf,
+                        title={TalkinNeRF: Animatable Neural Fields for Full-Body Talking Humans},
+                        author={Aggelina Chatziagapi, Bindita Chaudhuri, Amit Kumar, Rakesh Ranjan, Dimitris Samaras, and Nikolaos Sarafianos},
                         year={2024},
-                        eprint={2403.19920},
-                        archivePrefix={arXiv},
-                        primaryClass={cs.CV}
+                        booktitle={ECCV Workshops},
                     }
                 </code>
             </pre>
